@@ -56,6 +56,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
         // App services plan subnet
         name: 'snet-appServicePlan'
         properties: {
+          defaultOutboundAccess: false
           addressPrefix: appServicesSubnetPrefix
           delegations: [
             {
@@ -74,6 +75,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
         // App Gateway subnet
         name: 'snet-appGateway'
         properties: {
+          defaultOutboundAccess: false
           addressPrefix: appGatewaySubnetPrefix
           delegations: []
           networkSecurityGroup: {
@@ -176,6 +178,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
         // Workload firewall for all egress traffic
         name: 'AzureFirewallSubnet'
         properties: {
+          defaultOutboundAccess: false
           addressPrefix: azureFirewallSubnetPrefix
           delegations: []
           privateEndpointNetworkPolicies: 'Disabled'
@@ -186,6 +189,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
         // Workload firewall for all egress traffic
         name: 'AzureFirewallManagementSubnet'
         properties: {
+          defaultOutboundAccess: false
           addressPrefix: azureFirewallManagementSubnetPrefix
           delegations: []
           privateEndpointNetworkPolicies: 'Disabled'
